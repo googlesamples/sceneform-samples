@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2017 Google Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_bg"
+    android:orientation="vertical"
+    android:padding="4dp"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Metallic Factor"
+      android:textAlignment="center"
+      android:textColor="@android:color/white"/>
+  <ToggleButton
+      android:id="@+id/metallic_button"
+      android:layout_width="match_parent"
+      android:background="@drawable/rounded_gray_button"
+      android:textColor="@android:color/black"
+      android:layout_height="30dp"
+      android:text="ToggleButton"
+      android:shadowRadius="4"/>
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Roughness Factor"
+      android:textAlignment="center"
+      android:textColor="@android:color/white"/>
+
+  <SeekBar
+      android:id="@+id/roughness_slider"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

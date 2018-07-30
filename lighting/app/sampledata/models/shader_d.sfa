@@ -1,0 +1,107 @@
+{
+   materials: [
+      {
+         name: "lambert2",
+         parameters: [
+            {
+               baseColorFactor: [
+                  1,
+                  1,
+                  1,
+                  1,
+               ],
+            },
+            {
+               baseColor: "shader3d_baseColor",
+            },
+            {
+               diffuseColorFactor: null,
+            },
+            {
+               diffuseColor: null,
+            },
+            {
+               normal: "shader3d_normal",
+            },
+            {
+               metallicFactor: 1,
+            },
+            {
+               roughnessFactor: 1,
+            },
+            {
+               specularFactor: null,
+            },
+            {
+               glossinessFactor: null,
+            },
+            {
+               specularGlossiness: null,
+            },
+            {
+               specularGlossinessCalculation: null,
+            },
+            {
+               metallicRoughness: "shader3d_occlusionRoughnessMetallic",
+            },
+            {
+               occlusion: null,
+            },
+            {
+               emissiveFactor: [
+                  0,
+                  0,
+                  0,
+                  1,
+               ],
+            },
+            {
+               emissive: null,
+            },
+            {
+               reflectance: null,
+            },
+            {
+               opacity: null,
+            },
+         ],
+         source: "build/sceneform_sdk/default_materials/gltf_material.sfm",
+      },
+   ],
+   model: {
+      attributes: [
+         "Position",
+         "TexCoord",
+         "Orientation",
+      ],
+      collision: {},
+      file: "sampledata/models/shader_d.gltf",
+      name: "shader_d",
+      scale: 0.12
+      ,
+   },
+   samplers: [
+      {
+         file: "sampledata/models/shader3d_baseColor.png",
+         name: "shader3d_baseColor",
+         pipeline_name: "shader3d_baseColor.png",
+      },
+      {
+         file: "sampledata/models/shader3d_occlusionRoughnessMetallic.png",
+         name: "shader3d_occlusionRoughnessMetallic",
+         params: {
+            usage_type: "Data",
+         },
+         pipeline_name: "shader3d_occlusionRoughnessMetallic.png",
+      },
+      {
+         file: "sampledata/models/shader3d_normal.png",
+         name: "shader3d_normal",
+         params: {
+            usage_type: "Normal",
+         },
+         pipeline_name: "shader3d_normal.png",
+      },
+   ],
+   version: "0.51:1",
+}
