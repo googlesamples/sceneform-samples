@@ -14,6 +14,6 @@
    limitations under the License.
 -->
 <resources>
-  <style name="AppTheme" parent="Theme.AppCompat.Light"/>
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
 </resources>
 

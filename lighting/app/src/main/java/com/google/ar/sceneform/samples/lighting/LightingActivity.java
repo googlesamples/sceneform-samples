@@ -196,7 +196,7 @@ public class LightingActivity extends AppCompatActivity {
             // Create a thin box beneath the models.
             createShapeNode(anchorNode, boxRenderable, new Vector3(0.0f, 0.0f, 0.0f));
 
-            // setup lights
+            // Setup lights.
             setUpLights();
 
             hasPlacedShapes = true;
