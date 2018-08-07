@@ -18,7 +18,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SceneformLightingActivity">
+    tools:context=".LightingActivity">
 
   <fragment
       android:id="@+id/sceneform_fragment"
@@ -34,7 +34,7 @@
       android:layout_marginBottom="20dp"
       android:layout_alignParentBottom="true"
       android:layout_centerHorizontal="true"
-      android:text="LIGHTING MENU"
+      android:text="@string/lighting_menu"
       android:textColor="@android:color/black"
       />
 </RelativeLayout>

@@ -17,7 +17,7 @@
     android:id="@+id/lightControlsContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
     android:layout_alignParentTop="true"
     android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -35,23 +35,23 @@
         android:padding="4dp"
         android:layout_marginBottom="15dp"
         android:gravity="center"
-        android:text="Lights"
+        android:text="@string/lights"
         android:textAppearance="@android:style/TextAppearance.Medium"/>
     <TextView
-        android:id="@+id/lightSwitchControlsText"
+        android:id="@+id/shadowSwitchControlsText"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_weight="1"
         android:padding="4dp"
         android:gravity="center"
-        android:text="Shadows"
+        android:text="@string/shadows"
         android:textAppearance="@android:style/TextAppearance.Medium"/>
     <TextView
         android:id="@+id/colorSpinnerText"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_weight="1"
-        android:text="Color"
+        android:text="@string/color"
         android:padding="4dp"
         android:gravity="center"
         android:textAppearance="@android:style/TextAppearance.Medium"/>
@@ -61,7 +61,7 @@
         android:layout_height="48dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Intensity"
+        android:text="@string/intensity"
         android:padding="4dp"
         android:textAppearance="@android:style/TextAppearance.Medium"/>
     <TextView
@@ -69,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_weight="1"
-        android:text="Light Rotation Speed"
+        android:text="@string/light_rotation_speed"
         android:gravity="center"
         android:padding="4dp"
         android:textAppearance="@android:style/TextAppearance.Medium"/>
@@ -78,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_weight="1"
-        android:text="Number of Lights"
+        android:text="@string/number_of_lights"
         android:gravity="center"
         android:padding="4dp"
         android:textAppearance="@android:style/TextAppearance.Medium"/>
@@ -95,7 +95,7 @@
         android:layout_height="48dp"
         android:layout_marginBottom="15dp"
         android:layout_weight="1"
-        android:text="ToggleButton"
+        android:text="@string/togglebutton"
         />
     <ToggleButton
         android:id="@+id/shadowControlButton"
@@ -103,7 +103,7 @@
         android:background="@drawable/rounded_gray_button"
         android:layout_height="48dp"
         android:layout_weight="1"
-        android:text="ToggleButton"/>
+        android:text="@string/togglebutton"/>
     <Spinner
         android:id="@+id/colorSpinner"
         android:layout_width="match_parent"

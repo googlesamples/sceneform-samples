@@ -16,5 +16,15 @@
 -->
 <resources>
     <string name="app_name">Sceneform Lighting</string>
+    <string name="lights">Lights</string>
+    <string name="shadows">Shadows</string>
+    <string name="color">Color</string>
+    <string name="intensity">Intensity</string>
+    <string name="light_rotation_speed">Light Rotation Speed</string>
+    <string name="number_of_lights">Number of Lights</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="metallic_factor">Metallic Factor</string>
+    <string name="roughness_factor">Roughness Factor</string>
+    <string name="lighting_menu">LIGHTING MENU</string>
 </resources>
 

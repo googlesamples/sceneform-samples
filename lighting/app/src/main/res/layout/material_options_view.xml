@@ -26,7 +26,7 @@
   <TextView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Metallic Factor"
+      android:text="@string/metallic_factor"
       android:textAlignment="center"
       android:textColor="@android:color/white"/>
   <ToggleButton
@@ -35,13 +35,13 @@
       android:background="@drawable/rounded_gray_button"
       android:textColor="@android:color/black"
       android:layout_height="30dp"
-      android:text="ToggleButton"
+      android:text="@string/togglebutton"
       android:shadowRadius="4"/>
 
   <TextView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Roughness Factor"
+      android:text="@string/roughness_factor"
       android:textAlignment="center"
       android:textColor="@android:color/white"/>
 
