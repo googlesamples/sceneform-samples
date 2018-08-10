@@ -17,7 +17,7 @@ experiment with position, color, and intensity.
 
 
 The **Drawing sample** demonstrates how to use procedural geometry to 
-create a 3D drawing experience.
+create a 3D drawing experience. 
 
 Support
 -------
