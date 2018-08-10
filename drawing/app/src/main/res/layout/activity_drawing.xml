@@ -1,0 +1,117 @@
+<!--
+   Copyright 2018 Google Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CloudAnchorDrawingActivity">
+
+  <fragment
+      android:id="@+id/sceneform_fragment"
+      android:name="com.google.ar.sceneform.ux.ArFragment"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentTop="true"/>
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/controlsPanel"
+      android:orientation="horizontal"
+      android:layout_marginBottom="30dp"
+      android:layout_alignParentBottom="true"
+      android:padding="10dp"
+      android:layout_centerHorizontal="true"
+      android:background="@drawable/panel">
+    <ImageView
+        android:id="@+id/clearButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_delete"/>
+    <ImageView
+        android:id="@+id/colorPickerIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignLeft="@+id/clearButton"
+        android:layout_marginLeft="14dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_selected_white"/>
+    <ImageView
+        android:id="@+id/undoButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="14dp"
+        android:layout_alignLeft="@+id/colorPickerIcon"
+        android:src="@drawable/ic_undo"/>
+  </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/colorPanel"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/panel"
+        android:orientation="horizontal">
+      <ImageView
+          android:id="@+id/whiteCircle"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          android:layout_marginRight="14dp"
+          android:src="@drawable/ic_white_circle"/>
+      <ImageView
+          android:id="@+id/redCircle"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          android:layout_marginRight="14dp"
+          android:src="@drawable/ic_red_circle"/>
+      <ImageView
+          android:id="@+id/greenCircle"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          android:layout_marginRight="14dp"
+          android:layout_above="@+id/blueCircle"
+          android:layout_alignLeft="@+id/blueCircle"
+          android:src="@drawable/ic_green_circle"/>
+      <ImageView
+          android:id="@+id/blueCircle"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          android:layout_marginRight="14dp"
+          android:layout_above="@+id/blackCircle"
+          android:layout_alignLeft="@+id/blackCircle"
+          android:src="@drawable/ic_blue_circle"/>
+      <ImageView
+          android:id="@+id/blackCircle"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          android:layout_marginRight="14dp"
+          android:layout_above="@+id/log_button"
+          android:layout_alignRight="@+id/undoButton"
+          android:src="@drawable/ic_black_circle"/>
+      <ImageView
+          android:id="@+id/rainbowCircle"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          android:layout_alignLeft="@+id/colorPanel"
+          android:layout_centerVertical="true"
+          android:src="@drawable/ic_rainbow_circle"/>
+    </LinearLayout>
+</RelativeLayout>
