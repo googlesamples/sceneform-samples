@@ -17,7 +17,10 @@ experiment with position, color, and intensity.
 
 
 The **Drawing sample** demonstrates how to use procedural geometry to 
-create a 3D drawing experience. 
+create a 3D drawing experience. Users press down on the screen and can draw strokes by
+dragging a finger or moving their device. There is also functionality to 
+change the stroke color, undo a stroke, and clear the screen displayed on
+a control bar at the bottom of the screen.
 
 Support
 -------
