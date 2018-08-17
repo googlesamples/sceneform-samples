@@ -16,12 +16,14 @@
 -->
 <resources>
     <string name="app_name">Sceneform Drawing</string>
-    <string-array name="colors">
-        <item>White</item>
-        <item>Red</item>
-        <item>Green</item>
-        <item>Blue</item>
-        <item>Black</item>
-    </string-array>
+    <string name="clear_drawing">Clear drawing</string>
+    <string name="select_color">Select color</string>
+    <string name="undo_last_drawing_element">Undo last drawing element</string>
+    <string name="white_color">White color</string>
+    <string name="red_color">Red color</string>
+    <string name="green_color">Green color</string>
+    <string name="blue_color">Blue color</string>
+    <string name="black_color">Black color</string>
+    <string name="rainbow_color">Rainbow color</string>
 </resources>
 

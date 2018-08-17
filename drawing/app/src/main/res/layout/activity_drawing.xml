@@ -18,14 +18,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CloudAnchorDrawingActivity">
+    tools:context=".DrawingActivity">
 
   <fragment
       android:id="@+id/sceneform_fragment"
       android:name="com.google.ar.sceneform.ux.ArFragment"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="true"
       android:layout_alignParentTop="true"/>
   <LinearLayout
       android:layout_width="wrap_content"
@@ -42,23 +42,24 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_delete"/>
+        android:src="@drawable/ic_delete"
+        android:contentDescription="@string/clear_drawing"/>
     <ImageView
         android:id="@+id/colorPickerIcon"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_alignLeft="@+id/clearButton"
-        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_selected_white"/>
+        android:src="@drawable/ic_selected_white"
+        android:contentDescription="@string/select_color"/>
     <ImageView
         android:id="@+id/undoButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="14dp"
-        android:layout_alignLeft="@+id/colorPickerIcon"
-        android:src="@drawable/ic_undo"/>
+        android:layout_marginStart="14dp"
+        android:src="@drawable/ic_undo"
+        android:contentDescription="@string/undo_last_drawing_element"/>
   </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -74,44 +75,42 @@
           android:id="@+id/whiteCircle"
           android:layout_width="48dp"
           android:layout_height="48dp"
-          android:layout_marginRight="14dp"
-          android:src="@drawable/ic_white_circle"/>
+          android:layout_marginEnd="14dp"
+          android:src="@drawable/ic_white_circle"
+          android:contentDescription="@string/white_color"/>
       <ImageView
           android:id="@+id/redCircle"
           android:layout_width="48dp"
           android:layout_height="48dp"
-          android:layout_marginRight="14dp"
-          android:src="@drawable/ic_red_circle"/>
+          android:layout_marginEnd="14dp"
+          android:src="@drawable/ic_red_circle"
+          android:contentDescription="@string/red_color"/>
       <ImageView
           android:id="@+id/greenCircle"
           android:layout_width="48dp"
           android:layout_height="48dp"
-          android:layout_marginRight="14dp"
-          android:layout_above="@+id/blueCircle"
-          android:layout_alignLeft="@+id/blueCircle"
-          android:src="@drawable/ic_green_circle"/>
+          android:layout_marginEnd="14dp"
+          android:src="@drawable/ic_green_circle"
+          android:contentDescription="@string/green_color"/>
       <ImageView
           android:id="@+id/blueCircle"
           android:layout_width="48dp"
           android:layout_height="48dp"
-          android:layout_marginRight="14dp"
-          android:layout_above="@+id/blackCircle"
-          android:layout_alignLeft="@+id/blackCircle"
-          android:src="@drawable/ic_blue_circle"/>
+          android:layout_marginEnd="14dp"
+          android:src="@drawable/ic_blue_circle"
+          android:contentDescription="@string/blue_color"/>
       <ImageView
           android:id="@+id/blackCircle"
           android:layout_width="48dp"
           android:layout_height="48dp"
-          android:layout_marginRight="14dp"
-          android:layout_above="@+id/log_button"
-          android:layout_alignRight="@+id/undoButton"
-          android:src="@drawable/ic_black_circle"/>
+          android:layout_marginEnd="14dp"
+          android:src="@drawable/ic_black_circle"
+          android:contentDescription="@string/black_color"/>
       <ImageView
           android:id="@+id/rainbowCircle"
           android:layout_width="48dp"
           android:layout_height="48dp"
-          android:layout_alignLeft="@+id/colorPanel"
-          android:layout_centerVertical="true"
-          android:src="@drawable/ic_rainbow_circle"/>
+          android:src="@drawable/ic_rainbow_circle"
+          android:contentDescription="@string/rainbow_color"/>
     </LinearLayout>
 </RelativeLayout>
