@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Google Inc. All Rights Reserved.
+ * Copyright 2018 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,8 +31,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Spinner;
@@ -42,9 +40,7 @@ import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.sceneform.AnchorNode;
-import com.google.ar.sceneform.HitTestResult;
 import com.google.ar.sceneform.Node;
-import com.google.ar.sceneform.Node.OnTapListener;
 import com.google.ar.sceneform.math.Quaternion;
 import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.Color;
@@ -245,7 +241,7 @@ public class LightingActivity extends AppCompatActivity {
 
     // Stop the lighting menu from dimming the screen.
     lightUiMenu.getWindow().getAttributes().dimAmount = 0f;
-    Button launchMenuButton = (Button) findViewById(R.id.expand_controls);
+    Button launchMenuButton = findViewById(R.id.expand_controls);
     launchMenuButton.setOnClickListener(
         view -> {
           lightUiMenu.create();
@@ -253,7 +249,7 @@ public class LightingActivity extends AppCompatActivity {
         });
 
     // Initialize the Lights ToggleButton and default it to "On".
-    toggleLights = (ToggleButton) lightUiMenu.findViewById(R.id.lightSwitchControlsButton);
+    toggleLights = lightUiMenu.findViewById(R.id.lightSwitchControlsButton);
     toggleLights.setChecked(true);
     // Link the state of the light toggle button in the scene to the lights (red, green)
     toggleLights.setOnCheckedChangeListener(
@@ -272,7 +268,7 @@ public class LightingActivity extends AppCompatActivity {
         });
 
     // Initialize the Shadows ToggleButton and default it to "On".
-    toggleShadows = (ToggleButton) lightUiMenu.findViewById(R.id.shadowControlButton);
+    toggleShadows = lightUiMenu.findViewById(R.id.shadowControlButton);
     toggleShadows.setChecked(true);
 
     toggleShadows.setOnCheckedChangeListener(
@@ -285,7 +281,7 @@ public class LightingActivity extends AppCompatActivity {
         }));
 
     // Initialize Seekbar to DEFAULT_LIGHT_INTENSITY and set max to MAXIMUM LIGHT INTENSITY
-    intensityBar = (SeekBar) lightUiMenu.findViewById(R.id.lightIntensitySeekBar);
+    intensityBar = lightUiMenu.findViewById(R.id.lightIntensitySeekBar);
     intensityBar.setMax(MAXIMUM_LIGHT_INTENSITY);
     intensityBar.setProgress(DEFAULT_LIGHT_INTENSITY);
 
@@ -309,9 +305,9 @@ public class LightingActivity extends AppCompatActivity {
         });
 
     // Initialize Light Color Spinner and populate it with preset options from ColorPair.
-    lightColorSpinner = (Spinner) lightUiMenu.findViewById(R.id.colorSpinner);
+    lightColorSpinner = lightUiMenu.findViewById(R.id.colorSpinner);
     lightColorSpinner.setAdapter(
-        new ArrayAdapter<com.google.ar.sceneform.samples.lighting.ColorConfig.Type>(
+        new ArrayAdapter<>(
             this,
             android.R.layout.simple_spinner_dropdown_item,
             com.google.ar.sceneform.samples.lighting.ColorConfig.Type.values()));
@@ -347,7 +343,7 @@ public class LightingActivity extends AppCompatActivity {
         });
 
     // Initialize Orbit Speed Bar and set default speed to 1 and max to 10.
-    orbitSpeedBar = (SeekBar) lightUiMenu.findViewById(R.id.lightRotationSpeedSlider);
+    orbitSpeedBar = lightUiMenu.findViewById(R.id.lightRotationSpeedSlider);
     orbitSpeedBar.setMax(MAXIMUM_LIGHT_SPEED);
     orbitSpeedBar.setProgress(MAXIMUM_LIGHT_SPEED / 2);
 
@@ -372,7 +368,7 @@ public class LightingActivity extends AppCompatActivity {
         });
 
     // Initialize Number of Lights Slider and set max to 4.
-    numberOfLightsSlider = (SeekBar) lightUiMenu.findViewById(R.id.numOfLightsSlider);
+    numberOfLightsSlider = lightUiMenu.findViewById(R.id.numOfLightsSlider);
     numberOfLightsSlider.setMax(MAXIMUM_LIGHT_NUMBER);
     numberOfLightsSlider.setProgress(DEFAULT_LIGHT_NUMBER);
 
@@ -420,17 +416,14 @@ public class LightingActivity extends AppCompatActivity {
 
   private void setupMaterialMenu(ViewRenderable viewRenderable, Node node) {
     ToggleButton metallicButton =
-        (ToggleButton) viewRenderable.getView().findViewById(R.id.metallic_button);
+        viewRenderable.getView().findViewById(R.id.metallic_button);
     metallicButton.setChecked(true);
     metallicButton.setOnCheckedChangeListener(
-        new OnCheckedChangeListener() {
-          @Override
-          public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            float newValue = (isChecked) ? 1f : 0f;
-            changeMaterialValue("metallicFactor", newValue, node);
-          }
-        });
-    SeekBar roughnessBar = (SeekBar) viewRenderable.getView().findViewById(R.id.roughness_slider);
+            (buttonView, isChecked) -> {
+              float newValue = (isChecked) ? 1f : 0f;
+              changeMaterialValue("metallicFactor", newValue, node);
+            });
+    SeekBar roughnessBar = viewRenderable.getView().findViewById(R.id.roughness_slider);
     roughnessBar.setMax(MAXIMUM_MATERIAL_PROPERTY_VALUE);
     // Set initial roughness to half of its maximum value
     roughnessBar.setProgress(MAXIMUM_MATERIAL_PROPERTY_VALUE);
@@ -464,18 +457,15 @@ public class LightingActivity extends AppCompatActivity {
     menu.setParent(node);
     addMenuToNode(menu, localPosition);
     node.setOnTapListener(
-        new OnTapListener() {
-          @Override
-          public void onTap(HitTestResult hitTestResult, MotionEvent motionEvent) {
-            menu.setEnabled(!menu.isEnabled());
-            if (openMenuNode != null) {
-              openMenuNode.setEnabled(false);
-              openMenuNode = (openMenuNode == menu) ? null : menu;
-            } else {
-              openMenuNode = menu;
-            }
-          }
-        });
+            (hitTestResult, motionEvent) -> {
+              menu.setEnabled(!menu.isEnabled());
+              if (openMenuNode != null) {
+                openMenuNode.setEnabled(false);
+                openMenuNode = (openMenuNode == menu) ? null : menu;
+              } else {
+                openMenuNode = menu;
+              }
+            });
     return menu;
   }
 

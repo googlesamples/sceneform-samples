@@ -26,7 +26,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -80,8 +79,8 @@ public class DrawingActivity extends AppCompatActivity
       return;
     }
     setContentView(R.layout.activity_drawing);
-    colorPanel = (LinearLayout) findViewById(R.id.colorPanel);
-    controlPanel = (LinearLayout) findViewById(R.id.controlsPanel);
+    colorPanel = findViewById(R.id.colorPanel);
+    controlPanel = findViewById(R.id.controlsPanel);
 
     MaterialFactory.makeOpaqueWithColor(this, WHITE)
         .thenAccept(material1 -> material = material1.makeCopy())
@@ -96,83 +95,74 @@ public class DrawingActivity extends AppCompatActivity
     fragment.getArSceneView().getScene().addOnUpdateListener(this);
     fragment.getArSceneView().getScene().addOnPeekTouchListener(this);
 
-    ImageView clearButton = (ImageView) findViewById(R.id.clearButton);
+    ImageView clearButton = findViewById(R.id.clearButton);
     clearButton.setOnClickListener(
-        new OnClickListener() {
-          @Override
-          public void onClick(View v) {
-            for (Stroke stroke : strokes) {
-              stroke.clear();
-            }
-            strokes.clear();
-          }
-        });
-    ImageView undoButton = (ImageView) findViewById(R.id.undoButton);
+            v -> {
+              for (Stroke stroke : strokes) {
+                stroke.clear();
+              }
+              strokes.clear();
+            });
+    ImageView undoButton = findViewById(R.id.undoButton);
     undoButton.setOnClickListener(
-        new OnClickListener() {
-          @Override
-          public void onClick(View v) {
-            if (strokes.size() < 1) {
-              return;
-            }
-            int lastIndex = strokes.size() - 1;
-            strokes.get(lastIndex).clear();
-            strokes.remove(lastIndex);
-          }
-        });
+            v -> {
+              if (strokes.size() < 1) {
+                return;
+              }
+              int lastIndex = strokes.size() - 1;
+              strokes.get(lastIndex).clear();
+              strokes.remove(lastIndex);
+            });
 
     setUpColorPickerUi();
   }
 
   private void setUpColorPickerUi() {
-    ImageView colorPickerIcon = (ImageView) findViewById(R.id.colorPickerIcon);
+    ImageView colorPickerIcon = findViewById(R.id.colorPickerIcon);
     colorPanel.setVisibility(View.GONE);
     colorPickerIcon.setOnClickListener(
-        new OnClickListener() {
-          @Override
-          public void onClick(View v) {
-            if (controlPanel.getVisibility() == View.VISIBLE) {
-              controlPanel.setVisibility(View.GONE);
-              colorPanel.setVisibility(View.VISIBLE);
-            }
-          }
-        });
+            v -> {
+              if (controlPanel.getVisibility() == View.VISIBLE) {
+                controlPanel.setVisibility(View.GONE);
+                colorPanel.setVisibility(View.VISIBLE);
+              }
+            });
 
-    ImageView whiteCircle = (ImageView) findViewById(R.id.whiteCircle);
+    ImageView whiteCircle = findViewById(R.id.whiteCircle);
     whiteCircle.setOnClickListener(
         (onClick) -> {
           setColor(WHITE);
           colorPickerIcon.setImageResource(R.drawable.ic_selected_white);
         });
-    ImageView redCircle = (ImageView) findViewById(R.id.redCircle);
+    ImageView redCircle = findViewById(R.id.redCircle);
     redCircle.setOnClickListener(
         (onClick) -> {
           setColor(RED);
           colorPickerIcon.setImageResource(R.drawable.ic_selected_red);
         });
 
-    ImageView greenCircle = (ImageView) findViewById(R.id.greenCircle);
+    ImageView greenCircle = findViewById(R.id.greenCircle);
     greenCircle.setOnClickListener(
         (onClick) -> {
           setColor(GREEN);
           colorPickerIcon.setImageResource(R.drawable.ic_selected_green);
         });
 
-    ImageView blueCircle = (ImageView) findViewById(R.id.blueCircle);
+    ImageView blueCircle = findViewById(R.id.blueCircle);
     blueCircle.setOnClickListener(
         (onClick) -> {
           setColor(BLUE);
           colorPickerIcon.setImageResource(R.drawable.ic_selected_blue);
         });
 
-    ImageView blackCircle = (ImageView) findViewById(R.id.blackCircle);
+    ImageView blackCircle = findViewById(R.id.blackCircle);
     blackCircle.setOnClickListener(
         (onClick) -> {
           setColor(BLACK);
           colorPickerIcon.setImageResource(R.drawable.ic_selected_black);
         });
 
-    ImageView rainbowCircle = (ImageView) findViewById(R.id.rainbowCircle);
+    ImageView rainbowCircle = findViewById(R.id.rainbowCircle);
     rainbowCircle.setOnClickListener(
         (onClick) -> {
           setTexture(R.drawable.rainbow_texture);
@@ -183,11 +173,11 @@ public class DrawingActivity extends AppCompatActivity
   @SuppressWarnings({"FutureReturnValueIgnored"})
   private void setTexture(int resourceId) {
     Texture.builder()
-        .setSource(fragment.getContext(), resourceId)
+        .setSource(this, resourceId)
         .setSampler(Sampler.builder().setWrapMode(WrapMode.REPEAT).build())
         .build()
         .thenCompose(
-            texture -> MaterialFactory.makeOpaqueWithTexture(fragment.getContext(), texture))
+            texture -> MaterialFactory.makeOpaqueWithTexture(this, texture))
         .thenAccept(material1 -> material = material1.makeCopy())
         .exceptionally(
             throwable -> {
@@ -201,7 +191,7 @@ public class DrawingActivity extends AppCompatActivity
 
   @SuppressWarnings({"FutureReturnValueIgnored"})
   private void setColor(Color color) {
-    MaterialFactory.makeOpaqueWithColor(fragment.getContext(), color)
+    MaterialFactory.makeOpaqueWithColor(this, color)
         .thenAccept(material1 -> material = material1.makeCopy())
         .exceptionally(
             throwable -> {

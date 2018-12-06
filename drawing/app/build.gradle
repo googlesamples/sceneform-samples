@@ -24,15 +24,6 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
-        ndk {
-            /*
-             * Sceneform is available for the following ABIs: arm64-v8a, armv7a,
-             * x86_64 and x86. This sample app enables arm64-v8a to run on
-             * devices and x86 to run on the emulator. Your application should
-             * list the ABIs most appropriate to minimize APK size (arm64-v8a recommended).
-             */
-            abiFilters 'arm64-v8a','x86'
-        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -51,7 +42,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.4.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.6.0'
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
 }

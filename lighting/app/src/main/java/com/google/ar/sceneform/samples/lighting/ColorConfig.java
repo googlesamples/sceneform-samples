@@ -16,6 +16,7 @@ package com.google.ar.sceneform.samples.lighting;
 
 import com.google.ar.sceneform.rendering.Color;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -56,12 +57,12 @@ public class ColorConfig {
             android.graphics.Color.RED,
             android.graphics.Color.YELLOW,
             android.graphics.Color.BLUE));
-    colors.put(Type.RED, Arrays.asList(android.graphics.Color.RED));
-    colors.put(Type.YELLOW, Arrays.asList(android.graphics.Color.YELLOW));
-    colors.put(Type.GREEN, Arrays.asList(android.graphics.Color.GREEN));
-    colors.put(Type.BLUE, Arrays.asList(android.graphics.Color.BLUE));
-    colors.put(Type.MAGENTA, Arrays.asList(android.graphics.Color.MAGENTA));
-    colors.put(Type.WHITE, Arrays.asList(android.graphics.Color.WHITE));
+    colors.put(Type.RED, Collections.singletonList(android.graphics.Color.RED));
+    colors.put(Type.YELLOW, Collections.singletonList(android.graphics.Color.YELLOW));
+    colors.put(Type.GREEN, Collections.singletonList(android.graphics.Color.GREEN));
+    colors.put(Type.BLUE, Collections.singletonList(android.graphics.Color.BLUE));
+    colors.put(Type.MAGENTA, Collections.singletonList(android.graphics.Color.MAGENTA));
+    colors.put(Type.WHITE, Collections.singletonList(android.graphics.Color.WHITE));
     isMapInitialized = true;
   }
 

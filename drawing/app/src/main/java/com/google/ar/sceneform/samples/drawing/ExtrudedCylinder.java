@@ -26,7 +26,7 @@ import com.google.ar.sceneform.rendering.Vertex;
 import com.google.ar.sceneform.rendering.Vertex.UvCoordinate;
 import com.google.ar.sceneform.utilities.AndroidPreconditions;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /** Utility class used to dynamically construct {@link ModelRenderable}s for extruded cylinders. */
@@ -82,7 +82,7 @@ public class ExtrudedCylinder {
     RenderableDefinition renderableDefinition =
         RenderableDefinition.builder()
             .setVertices(vertices)
-            .setSubmeshes(Arrays.asList(submesh))
+            .setSubmeshes(Collections.singletonList(submesh))
             .build();
 
     return renderableDefinition;

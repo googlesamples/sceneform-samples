@@ -81,9 +81,10 @@ public class Stroke {
 
   @Override
   public String toString() {
-    String result = "Vector3[] strokePoints = {";
+    StringBuilder result = new StringBuilder("Vector3[] strokePoints = {");
     for (Vector3 vector3 : lineSimplifier.getPoints()) {
-      result += ("new Vector3(" + vector3.x + "f, " + vector3.y + "f, " + vector3.z + "f),\n ");
+      result.append("new Vector3(").append(vector3.x).append("f, ")
+              .append(vector3.y).append("f, ").append(vector3.z).append("f),\n ");
     }
     return result.substring(0, result.length() - 3) + "};";
   }
